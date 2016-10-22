@@ -40,15 +40,21 @@ var myMarked = {
 		}
 	},
 	catelog: function() {
-		// 只显示4级目录就够了
-		var elms = document.querySelectorAll('#html h1,#html h2,#html h3,#html h4');
+		var elms = document.querySelectorAll('#html h1,#html h2,#html h3,#html h4,#html h5,#html h6');
+        var mleft = [];
+        mleft['h1'] = 0;
+        for (var i = 2; i <= 6; i++) {
+            count = document.querySelectorAll('#html h' + (i - 1)).length > 0 ? 1 : 0;
+            mleft['h' + i] = parseInt(mleft['h' + (i - 1)]) + count;
+        }
+        console.log(mleft);
 		var htm = '', tag, text, id, h;
 		for (var i=0, len = elms.length; i< len; i++) {
 			h = elms[i];
 			tag = h.tagName.toLowerCase();
 			text = h.innerText;
 			id = h.id;
-			htm += '<li class="'+tag+'"><a  href="#'+id+'" title="'+text+'">'+text+'</a></li>';
+			htm += '<li class="mleft'+mleft[tag]+'"><a  href="#'+id+'">'+text+'</a></li>';
 		}
 		myMarked.catElm.innerHTML =  htm ;
 	},
@@ -57,21 +63,6 @@ var myMarked = {
 		myMarked.htmlElm.innerHTML = marked(value);
 		hljs.initHighlighting.called = false;
 		hljs.initHighlighting();
-
-		// hljs 的样式和 flexbox 结合，当重新渲染的时候会有bug
-		// <pre><code> 在 flexbox 之内，且 code 为 display:block; overflow-x: auto; 时
-		// 当 flexbox 的 innerHTML 重新改变时, code 是无法滚动的
-		// 估计是跟 pre 相关
-		// 所以把样式放到 pre 上面
-		// -- 发现渲染还是有点问题，不能正确渲染 margin ---
-		// 不使用 flexbox 好了。
-		/*
-		var hlNode = document.querySelectorAll('.hljs');
-		for (var i = hlNode.length - 1; i >= 0; i--) {
-			hlNode[i].classList.remove("hljs");
-			hlNode[i].parentNode.classList.add('hljs');
-		}
-		*/
 
 		myMarked.catelog();
 	},

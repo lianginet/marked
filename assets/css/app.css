@@ -27,21 +27,20 @@ textarea:focus {outline:none; border-right-color:#ddd;}
 .scrollbar::-webkit-scrollbar{width:8px;  }
 .scrollbar::-webkit-scrollbar-track{  background-color:#FCFCFC;  }
 .scrollbar::-webkit-scrollbar-track:hover{background-color:rgba(0,0,0,0.06);border-style:solid;  border-color:#FCFCFC; border-width: 0 0 0 4px;}
-/*.scrollbar::-webkit-scrollbar-track:active{background-color:rgba(0,0,0,0.1)}*/
 .scrollbar::-webkit-scrollbar-thumb{  background-color:rgba(0,0,0,.1); border-style:solid; border-color:#FCFCFC; border-width: 0 0 0 4px; }
 .scrollbar::-webkit-scrollbar-thumb:hover{background-color:rgba(0,0,0,0.3);  }
 .scrollbar::-webkit-scrollbar-thumb:active{background:rgba(0,0,0,0.6)}
 
 #catelog {display: none;}
-.catelog {  position: fixed; top: 4px; right: 18px; border: 1px solid #EEEEEE; background-color: #FCFCFC; border-radius: 2px; max-height: 90%; max-width: 20em;  overflow:auto; min-width: 20px; min-height: 20px; }
-.catelog ol { padding:1em; margin:0; list-style:none; }
+.catelog {  position: fixed; top: 4px; right: 18px; border: 1px solid #EEEEEE; background-color: #fff; border-radius: 2px; max-height: 90%; max-width: 20em;  overflow:auto; min-width: 20px; min-height: 20px; }
+.catelog ol { padding:10px 35px 10px 10px; margin:0; list-style:none; }
 .catelog li { list-style:none; font-size: 12px; margin-top:4px; }
-.catelog a { text-decoration: none; color: #444; line-height: 1; }
+.catelog a { text-decoration: none; color: #333; line-height: 1.2; }
 .catelog a:hover { color: #3079ED; }
-.catelog .h1 { font-size: 14px; font-weight: bold; }
-.catelog .h2 { margin-left: 1em; font-size: 14px; }
-.catelog .h3 { margin-left: 2em; }
-.catelog .h4 { margin-left: 3em; }
-.catelog .h5 { margin-left: 4em; }
-.catelog .h6 { margin-left: 5em; }
+.catelog .mleft0 {font-size: 14px; font-weight: 600; }
+.catelog .mleft1 {margin-left: 1em; font-size: 13px; }
+.catelog .mleft2 {margin-left: 2em; }
+.catelog .mleft3 { margin-left: 3em; }
+.catelog .mleft4 { margin-left: 4em; }
+.catelog .mleft5 { margin-left: 5em; }
 #catelog-handler { position: absolute; top:0;right:0; cursor: pointer; width: 20px; line-height: 20px; height: 20px; text-align: center; }
